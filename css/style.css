@@ -1,0 +1,161 @@
+/* =========================================================
+   Bilim Academy — Landing Page Styles
+   ========================================================= */
+
+/* ---------- Reset & Base ---------- */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --primary: #6366f1;
+  --primary-dark: #4f46e5;
+  --primary-light: #818cf8;
+  --accent: #f59e0b;
+  --pink: #ec4899;
+  --green: #10b981;
+  --ink: #0f172a;
+  --ink-2: #1e293b;
+  --muted: #64748b;
+  --line: #e2e8f0;
+  --bg: #ffffff;
+  --bg-tint: #f6f7fb;
+  --bg-soft: #eef2ff;
+  --radius: 18px;
+  --radius-sm: 12px;
+  --shadow-sm: 0 2px 10px rgba(15, 23, 42, 0.06);
+  --shadow: 0 12px 40px rgba(15, 23, 42, 0.10);
+  --shadow-lg: 0 24px 60px rgba(79, 70, 229, 0.22);
+  --header-h: 74px;
+  --container: 1180px;
+  --ease: cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: calc(var(--header-h) + 12px);
+}
+
+body {
+  font-family: "Inter", "Manrope", system-ui, sans-serif;
+  color: var(--ink);
+  background: var(--bg);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+img { max-width: 100%; display: block; }
+a { color: inherit; text-decoration: none; }
+ul { list-style: none; }
+button { font-family: inherit; cursor: pointer; border: none; background: none; }
+input, select, textarea { font-family: inherit; font-size: 1rem; }
+
+h1, h2, h3, h4 {
+  font-family: "Manrope", "Inter", sans-serif;
+  line-height: 1.2;
+  color: var(--ink);
+  font-weight: 800;
+  letter-spacing: -0.02em;
+}
+
+.container {
+  width: 100%;
+  max-width: var(--container);
+  margin-inline: auto;
+  padding-inline: 24px;
+}
+
+.section { padding: 96px 0; }
+.section--tint { background: var(--bg-tint); }
+
+.section__head {
+  max-width: 660px;
+  margin: 0 auto 56px;
+  text-align: center;
+}
+.section__head--left { text-align: left; margin-inline: 0; }
+
+.eyebrow {
+  display: inline-block;
+  font-weight: 700;
+  font-size: 0.82rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--primary);
+  margin-bottom: 12px;
+}
+
+.section__title { font-size: clamp(1.7rem, 3.4vw, 2.6rem); margin-bottom: 14px; }
+.section__desc { color: var(--muted); font-size: 1.06rem; }
+
+/* ---------- Buttons ---------- */
+.btn {
+  --btn-bg: var(--primary);
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 0.98rem;
+  padding: 13px 24px;
+  border-radius: 999px;
+  background: var(--btn-bg);
+  color: #fff;
+  transition: transform 0.25s var(--ease), box-shadow 0.25s var(--ease), background 0.25s;
+  white-space: nowrap;
+}
+.btn:hover { transform: translateY(-2px); box-shadow: var(--shadow-lg); }
+.btn:active { transform: translateY(0); }
+
+.btn--primary {
+  background: linear-gradient(120deg, var(--primary), var(--primary-dark));
+  box-shadow: 0 10px 26px rgba(99, 102, 241, 0.35);
+}
+.btn--ghost {
+  background: #fff;
+  color: var(--ink);
+  border: 1.5px solid var(--line);
+}
+.btn--ghost:hover { border-color: var(--primary); color: var(--primary); box-shadow: var(--shadow-sm); }
+.btn--light { background: #fff; color: var(--primary-dark); }
+.btn--lg { padding: 16px 30px; font-size: 1.05rem; }
+.btn--sm { padding: 9px 16px; font-size: 0.88rem; }
+.btn--block { width: 100%; }
+
+.play {
+  display: grid;
+  place-items: center;
+  width: 26px; height: 26px;
+  border-radius: 50%;
+  background: var(--primary);
+  color: #fff;
+  font-size: 0.6rem;
+}
+
+/* ---------- Header ---------- */
+.header {
+  position: fixed;
+  inset: 0 0 auto 0;
+  height: var(--header-h);
+  z-index: 100;
+  background: rgba(255, 255, 255, 0.82);
+  backdrop-filter: blur(14px);
+  border-bottom: 1px solid transparent;
+  transition: box-shadow 0.3s, border-color 0.3s, background 0.3s;
+}
+.header.is-scrolled {
+  box-shadow: var(--shadow-sm);
+  border-color: var(--line);
+}
+.header__inner {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+}
